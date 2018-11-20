@@ -6,7 +6,7 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.0.1
+// @version      1.0
 // @date         2018-11-20
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
