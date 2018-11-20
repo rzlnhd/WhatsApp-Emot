@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         WhatsApp Emoticon
-// @description  Tools yang digunakan untuk mengubah emoticon menjadi emoji.
+// @description  Tools yang digunakan untuk mengubah emoticon menjadi emoji berdasarkan dengan emoKey.
 // @copyright    2018, rzlnhd (https://openuserjs.org/users/rzlnhd)
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
 // @icon         https://i.imgur.com/K6tyGmQ.png
