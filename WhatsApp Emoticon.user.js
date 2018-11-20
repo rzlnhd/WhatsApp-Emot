@@ -20,8 +20,8 @@
 // ==/OpenUserJS==
 
 /* Global Variables */
-var emoti = [" :)"," :D"," :<3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :pp"," :^"," :v"," :@"," :o"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.0.1";
+var emoti = [" :)"," :D"," :<3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :'D"," :L"," :g"," :p"," :^"," :v"," :@"," :o"],
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.0";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
@@ -29,9 +29,7 @@ function general(){
 		document.addEventListener("click", initListener);
 		console.log("WhatsApp Emoticon "+version+" - Free Emoticon!");
 		clearInterval(timer);
-	} else{
-		console.log("WhatsApp Emoticon "+version+" - Waiting for WhatsApp to load...");
-    }
+	}
 }
 /*=====================================
    Initial Function : Set Listener
