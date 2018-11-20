@@ -6,7 +6,7 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.0.2
+// @version      1.0
 // @date         2018-11-20
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
@@ -20,8 +20,8 @@
 // ==/OpenUserJS==
 
 /* Global Variables */
-var emoti = [" :)"," :D"," :<3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :p"," :\^"," :v"," :@"," :o"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.0.2";
+var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"],
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.0";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
