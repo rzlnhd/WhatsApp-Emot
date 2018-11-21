@@ -21,7 +21,7 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"],
-	emoji = ["??","??","??","?","??","??","?","??","??","??","??","??","??","??","??","??"],version = "v1.1";
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.1";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
@@ -87,7 +87,7 @@ function getCaretPosition(el) {
 /* Set Cursor Position */
 function setCaretPosition(el, p, i){
 	var range,sel;
-	if(i==2 || i==4){p-=2;} else{p-=1;}
+	if(i==2||i==4||i==8||i==9){p-=2;} else{p-=1;}
 	if(document.createRange){
         range = document.createRange();
         sel = window.getSelection();
