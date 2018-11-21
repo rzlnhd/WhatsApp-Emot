@@ -6,8 +6,8 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.0
-// @date         2018-11-20
+// @version      1.1
+// @date         2018-11-21
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -21,7 +21,7 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.0";
+	emoji = ["??","??","??","?","??","??","?","??","??","??","??","??","??","??","??","??"],version = "v1.1";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
@@ -43,28 +43,57 @@ function initListener(){
    Main Function : Change Emoticon to Emoji.
 =====================================*/
 function eEmoji(e){
-	var i,text = this.innerText;
+	var i,text = this.innerText,pos,j;
 	for(i=0;i<emoti.length;i++){
 		if(text.includes(emoti[i])){
 			text=text.replace(emoti[i],emoji[i]);
+            j=i;
 		}
-	}	
+    }
 	if(this.innerText!=text){
+		pos=getCaretPosition(this)
 		this.innerText=text;
-		eBack(this);
+		setCaretPosition(this,pos,j);
 	}
 }
 /*=====================================
-   Utilities Function : Set Cursor Position
+   Utilities Function : Get and Set Cursor Position
 =====================================*/
-function eBack(obj){
-	var range,selection;
+/* Get Cursor Position */
+function getCaretPosition(el) {
+  var caretPos = 0,
+    sel, range;
+  if (window.getSelection) {
+    sel = window.getSelection();
+    if (sel.rangeCount) {
+      range = sel.getRangeAt(0);
+      if (range.commonAncestorContainer.parentNode == el) {
+        caretPos = range.endOffset;
+      }
+    }
+  } else if (document.selection && document.selection.createRange) {
+    range = document.selection.createRange();
+    if (range.parentElement() == el) {
+      var tempEl = document.createElement("span");
+      el.insertBefore(tempEl, el.firstChild);
+      var tempRange = range.duplicate();
+      tempRange.moveToElementText(tempEl);
+      tempRange.setEndPoint("EndToEnd", range);
+      caretPos = tempRange.text.length;
+    }
+  }
+  return caretPos;
+}
+/* Set Cursor Position */
+function setCaretPosition(el, p, i){
+	var range,sel;
+	if(i==2 || i==4){p-=2;} else{p-=1;}
 	if(document.createRange){
         range = document.createRange();
-        range.selectNodeContents(obj);
-        range.collapse(false);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
+        sel = window.getSelection();
+		range.setStart(el.childNodes[0], p);
+		range.collapse(true);
+		sel.removeAllRanges();
+		sel.addRange(range);
+	}
 }
