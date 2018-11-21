@@ -6,7 +6,7 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.1
+// @version      1.2
 // @date         2018-11-21
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
@@ -21,7 +21,7 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.1";
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱"],version = "v1.2";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
@@ -43,7 +43,8 @@ function initListener(){
    Main Function : Change Emoticon to Emoji.
 =====================================*/
 function eEmoji(e){
-	var i,text = this.innerText,pos,j;
+	var i,text = this.innerText,pos,j,
+        emo=this.getElementsByTagName("img")[0];
 	for(i=0;i<emoti.length;i++){
 		if(text.includes(emoti[i])){
 			text=text.replace(emoti[i],emoji[i]);
@@ -54,7 +55,10 @@ function eEmoji(e){
 		pos=getCaretPosition(this)
 		this.innerText=text;
 		setCaretPosition(this,pos,j);
-	}
+	} else if(emo!=null){
+        this.innerText+=emo.getAttributeNode("alt").value;
+        eBack(this);
+    }
 }
 /*=====================================
    Utilities Function : Get and Set Cursor Position
@@ -96,4 +100,16 @@ function setCaretPosition(el, p, i){
 		sel.removeAllRanges();
 		sel.addRange(range);
 	}
+}
+/* Set Cursor At The End */
+function eBack(obj){
+	var range,selection;
+	if(document.createRange){
+        range = document.createRange();
+        range.selectNodeContents(obj);
+        range.collapse(false);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
 }
