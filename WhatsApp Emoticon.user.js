@@ -6,8 +6,8 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.2.2
-// @date         2019-02-03
+// @version      1.2.3
+// @date         2019-05-029
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -21,11 +21,11 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.2";
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.3";
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
-    if(document.getElementsByClassName("swl8g")[0] != null){
+    if(document.getElementsByClassName("_1uESL")[0] != null){
 		document.addEventListener("input", initListener);
 		console.log("WhatsApp Emoticon "+version+" - Free Emoticon!");
 		console.log("Tambahkan spasi sebelum menuliskan emoKey.");
@@ -36,7 +36,7 @@ function general(){
    Initial Function : Set Listener
 =====================================*/
 function initListener(){
-	var obj=document.getElementsByClassName("_2S1VP")[0];
+	var obj=document.getElementsByClassName("_3u328")[0];
 	if(obj!=null){obj.addEventListener("input", eEmoji)};
 }
 /*=====================================
