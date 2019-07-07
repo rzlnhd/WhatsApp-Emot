@@ -27,9 +27,9 @@ var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D","
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
-    if(document.getElementsByClassName("_1uESL")[0] != null){
+	if(document.getElementsByClassName("_1uESL")[0] != null){
 		document.addEventListener("click", initListener);
-        document.addEventListener("click", getPdef);
+		document.addEventListener("click", getPdef);
 		console.log("WhatsApp Emoticon "+version+" - Free Emoticon!");
 		console.log("Tambahkan spasi sebelum menuliskan emoKey.");
 		clearInterval(timer);
@@ -44,34 +44,34 @@ function initListener(){
 }
 function getPdef(){
 	var obj=document.getElementsByClassName("_3u328")[0];
-    p_def = getCaretPosition(obj);
+	p_def = getCaretPosition(obj);
 }
 /*=====================================
    Main Function : Change Emoticon to Emoji.
 =====================================*/
 function eEmoji(e){
 	var i,text = this.innerText,html = this.innerHTML,pos,j,
-        emo=this.getElementsByTagName("img");
+	    emo=this.getElementsByTagName("img");
 	for(i=0;i<emoti.length;i++){
 		if(text.includes(emoti[i])){
 			text=text.replace(emoti[i],emoji[i]);
-            j=i;
+			j=i;
 		}
-    }
-    pos=getCaretPosition(this);
-    if((pos!=0 && pos!=p_def) || (pos==0 && text.length==0)){p_def=pos;} else if(pos==0 && text.length!=0){pos=p_def;}
+	}
+	pos=getCaretPosition(this);
+	if((pos!=0 && pos!=p_def) || (pos==0 && text.length==0)){p_def=pos;} else if(pos==0 && text.length!=0){pos=p_def;}
 	if(emo.length!=0){
-        j=-2;
-        for(i=0;i<i_alt.length;i++){
-            if(emo[0].getAttributeNode("alt").value===i_alt[i]){
-                j=-1;
-            }
-        }
-        this.innerText=html.replace(emo[0].outerHTML,emo[0].getAttributeNode("alt").value);
-        setCaretPosition(this,pos,j);
-    } else if(this.innerText!=text){
+		j=-2;
+		for(i=0;i<i_alt.length;i++){
+			if(emo[0].getAttributeNode("alt").value===i_alt[i]){
+				j=-1;
+			}
+		}
+		this.innerText=html.replace(emo[0].outerHTML,emo[0].getAttributeNode("alt").value);
+		setCaretPosition(this,pos,j);
+	} else if(this.innerText!=text){
 		this.innerText=text;
-        setCaretPosition(this,pos,j);
+		setCaretPosition(this,pos,j);
 	}
 }
 /*=====================================
@@ -79,38 +79,38 @@ function eEmoji(e){
 =====================================*/
 /* Get Cursor Position */
 function getCaretPosition(el) {
-  var caretPos = 0, sel, range;
-  if (window.getSelection) {
-    sel = window.getSelection();
-    if (sel.rangeCount) {
-      range = sel.getRangeAt(0);
-      if (range.commonAncestorContainer.parentNode == el) {
-        caretPos = range.endOffset;
-      }
-    }
-  } else if (document.selection && document.selection.createRange) {
-    range = document.selection.createRange();
-    if (range.parentElement() == el) {
-      var tempEl = document.createElement("span");
-      el.insertBefore(tempEl, el.firstChild);
-      var tempRange = range.duplicate();
-      tempRange.moveToElementText(tempEl);
-      tempRange.setEndPoint("EndToEnd", range);
-      caretPos = tempRange.text.length;
-    }
-  }
-  return caretPos;
+	var caretPos = 0, sel, range;
+	if (window.getSelection) {
+		sel = window.getSelection();
+		if (sel.rangeCount) {
+			range = sel.getRangeAt(0);
+			if (range.commonAncestorContainer.parentNode == el) {
+				caretPos = range.endOffset;
+			}
+		}
+	} else if (document.selection && document.selection.createRange) {
+		range = document.selection.createRange();
+		if (range.parentElement() == el) {
+			var tempEl = document.createElement("span");
+			el.insertBefore(tempEl, el.firstChild);
+			var tempRange = range.duplicate();
+			tempRange.moveToElementText(tempEl);
+			tempRange.setEndPoint("EndToEnd", range);
+			caretPos = tempRange.text.length;
+		}
+	}
+	return caretPos;
 }
 /* Set Cursor Position */
 function setCaretPosition(el, p, i){
 	var range,sel;
 	if(i==2||i==4||i==8||i==9){p-=2;}
-    else if(i==-1){p+=1;p_def=p;}
-    else if(i==-2){p+=2;p_def=p;}
-    else{p-=1;}
+	else if(i==-1){p+=1;p_def=p;}
+	else if(i==-2){p+=2;p_def=p;}
+	else{p-=1;}
 	if(document.createRange){
-        range = document.createRange();
-        sel = window.getSelection();
+		range = document.createRange();
+		sel = window.getSelection();
 		range.setStart(el.childNodes[0], p);
 		range.collapse(true);
 		sel.removeAllRanges();
