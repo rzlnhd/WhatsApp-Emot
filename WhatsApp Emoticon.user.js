@@ -6,7 +6,7 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.2.4
+// @version      1.2.5
 // @date         2019-07-07
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
@@ -21,7 +21,7 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," <3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"],
-	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.4",
+	emoji = ["🙂","😁","😍","❤","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.5",
     i_alt = ["❤","☺"],
     p_def=1;
 /* First Function */
@@ -104,7 +104,7 @@ function getCaretPosition(el) {
 /* Set Cursor Position */
 function setCaretPosition(el, p, i){
 	var range,sel;
-	if(i==2||i==4||i==8||i==9){p-=2;}
+	if(i==2||i==3||i==4||i==8||i==9){p-=2;}
 	else if(i==-1){p+=1;p_def=p;}
 	else if(i==-2){p+=2;p_def=p;}
 	else{p-=1;}
