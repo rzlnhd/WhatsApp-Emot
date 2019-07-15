@@ -6,8 +6,8 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.2.6
-// @date         2019-07-08
+// @version      1.2.7
+// @date         2019-07-15
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -21,9 +21,10 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," <:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"],
-	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.6",
+	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.7",
     i_alt = ["❤","☺"],
-    p_def=1,k_bool=true;
+    p_def=1,k_bool=true,
+    c_index=0;
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
@@ -55,11 +56,11 @@ function initListener(){
    Main Function : Change Emoticon to Emoji.
 =====================================*/
 function eEmoji(e){
-	var i,text = this.innerText,html = this.innerHTML,pos,j,
+	var i,html = this.innerHTML,pos,j,
 	    emo=this.getElementsByTagName("img");
 	for(i=0;i<emoti.length;i++){
-		if(text.includes(emoti[i])){
-			text=text.replace(emoti[i],emoji[i]);
+		if(html.includes(emoti[i])){
+			html=html.replace(emoti[i],emoji[i]);
 			j=i;
 		}
 	}
@@ -75,10 +76,10 @@ function eEmoji(e){
             html=html.replace(emo[i].outerHTML,emo[i].getAttributeNode("alt").value)
             if(i>0){pos=html.length;j=-3;}
         }
-		this.innerText=html;
+		this.innerHTML=html;
 		setCaretPosition(this,pos,j);
-	} else if(this.innerText!=text){
-		this.innerText=text;
+	} else if(this.innerHTML!=html){
+		this.innerHTML=html;
 		setCaretPosition(this,pos,j);
 	}
 }
@@ -87,11 +88,16 @@ function eEmoji(e){
 =====================================*/
 /* Get Cursor Position */
 function getCaretPosition(el) {
-	var caretPos = 0, sel, range;
+	var caretPos = 0, sel, range, i;
 	if (window.getSelection) {
 		sel = window.getSelection();
 		if (sel.rangeCount) {
 			range = sel.getRangeAt(0);
+            for(i=0;i<el.childNodes.length;i++){
+                if(range.commonAncestorContainer.nodeValue===el.childNodes[i].nodeValue){
+                    c_index=i;
+                }
+            }
 			if (range.commonAncestorContainer.parentNode == el) {
 				caretPos = range.endOffset;
 			}
@@ -118,7 +124,7 @@ function setCaretPosition(el, p, i){
 	if(document.createRange){
 		range = document.createRange();
 		sel = window.getSelection();
-		range.setStart(el.childNodes[0], p);
+		range.setStart(el.childNodes[c_index], p);
 		range.collapse(true);
 		sel.removeAllRanges();
 		sel.addRange(range);
