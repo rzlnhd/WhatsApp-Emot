@@ -6,8 +6,8 @@
 // @icon         https://i.imgur.com/K6tyGmQ.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.2.7
-// @date         2019-07-15
+// @version      1.2.8
+// @date         2019-07-17
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -20,8 +20,8 @@
 // ==/OpenUserJS==
 
 /* Global Variables */
-var emoti = [" :)"," :D"," <:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"],
-	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊"],version = "v1.2.7",
+var emoti = [" :)"," :D"," <:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"," :*"],
+	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.2.8",
     i_alt = ["❤","☺"],
     p_def=1,k_bool=true,
     c_index=0;
@@ -29,9 +29,8 @@ var emoti = [" :)"," :D"," <:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L","
 var timer = setInterval(general,1000);
 function general(){
 	if(document.getElementsByClassName("_1uESL")[0] != null){
-		document.addEventListener("click", getPdefC);
-		document.addEventListener("keyup", getPdefK);
-		document.addEventListener("click", initListener);
+		document.addEventListener("click", function(){initListener(false)});
+		document.addEventListener("keyup", function(){initListener(true)});
 		console.log("WhatsApp Emoticon "+version+" - Free Emoticon!");
 		console.log("Tambahkan spasi sebelum menuliskan emoKey.");
 		clearInterval(timer);
@@ -40,17 +39,12 @@ function general(){
 /*=====================================
    Initial Function : Set Listener
 =====================================*/
-function getPdefC(){
+function initListener(bool){
 	var obj=document.getElementsByClassName("_3u328")[0];
-	p_def = getCaretPosition(obj);k_bool=false;
-}
-function getPdefK(){
-	var obj=document.getElementsByClassName("_3u328")[0];
-	p_def = getCaretPosition(obj);k_bool=true;
-}
-function initListener(){
-	var obj=document.getElementsByClassName("_3u328")[0];
-	if(obj!=null){obj.addEventListener("input", eEmoji)};
+	if(obj!=null){
+        p_def = getCaretPosition(obj);k_bool=bool;
+        obj.addEventListener("input", eEmoji)
+    };
 }
 /*=====================================
    Main Function : Change Emoticon to Emoji.
