@@ -3,11 +3,11 @@
 // @description  Tools yang digunakan untuk mengubah emoticon menjadi emoji berdasarkan dengan emoKey.
 // @copyright    2018, rzlnhd (https://openuserjs.org/users/rzlnhd)
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
-// @icon         https://i.imgur.com/K6tyGmQ.png
+// @icon         https://i.ibb.co/pXc8bw4/WA-Emot-Icon.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.2.8
-// @date         2019-07-17
+// @version      1.3.0
+// @date         2020-01-18
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -21,14 +21,14 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," &lt;:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"," :*"],
-	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.2.8",
+	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.3.0",
     i_alt = ["❤","☺"],
     p_def=1,k_bool=true,
     c_index=0;
 /* First Function */
 var timer = setInterval(general,1000);
 function general(){
-	if(document.getElementsByClassName("_1uESL")[0] != null){
+	if(document.getElementsByClassName("app")[0] != null){
 		document.addEventListener("click", function(){initListener(false)});
 		document.addEventListener("keyup", function(){initListener(true)});
 		console.log("WhatsApp Emoticon "+version+" - Free Emoticon!");
@@ -40,7 +40,7 @@ function general(){
    Initial Function : Set Listener
 =====================================*/
 function initListener(bool){
-	var obj=document.getElementsByClassName("_3u328")[0];
+	var obj=document.querySelector("div.copyable-text.selectable-text");
 	if(obj!=null){
         p_def = getCaretPosition(obj);k_bool=bool;
         obj.addEventListener("input", eEmoji)
