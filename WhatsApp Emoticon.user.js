@@ -22,6 +22,7 @@
 /* Global Variables */
 var emoti = [" :)"," :D"," &lt;:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"," :*"],
 	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.3.0",
+    classIn="_3u328" /*input chat*/,
     i_alt = ["❤","☺"],
     p_def=1,k_bool=true,
     c_index=0;
@@ -40,7 +41,7 @@ function general(){
    Initial Function : Set Listener
 =====================================*/
 function initListener(bool){
-	var obj=document.querySelector("div.copyable-text.selectable-text");
+	var obj=document.querySelector("div."+classIn+".copyable-text.selectable-text");
 	if(obj!=null){
         p_def = getCaretPosition(obj);k_bool=bool;
         obj.addEventListener("input", eEmoji)
