@@ -6,8 +6,8 @@
 // @icon         https://i.ibb.co/pXc8bw4/WA-Emot-Icon.png
 // @homepageURL  https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon
 // @supportURL   https://openuserjs.org/scripts/rzlnhd/WhatsApp_Emoticon/issues
-// @version      1.3.0
-// @date         2020-01-18
+// @version      1.3.2
+// @date         2020-01-23
 // @author       Rizal Nurhidayat
 // @match        https://web.whatsapp.com/
 // @grant        none
@@ -21,7 +21,7 @@
 
 /* Global Variables */
 var emoti = [" :)"," :D"," &lt;:3"," (/)"," :%"," :z"," :p"," :\')"," :\'D"," :L"," :g"," :^"," :v"," :@"," :o"," ^^"," :*"],
-	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.3.0",
+	emoji = ["🙂","😁","😍","🙏","👏","✅","😋","😂","🤣","💪","👻","👆","👇","😡","😱","😊","😘"],version = "v1.3.2",
     classIn="_3u328" /*input chat*/,
     i_alt = ["❤","☺"],
     p_def=1,k_bool=true,
